@@ -1,0 +1,21 @@
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsString, Matches } from 'class-validator';
+
+export class LogInDto {
+  @ApiProperty({
+    default: '0934128854',
+    type: String,
+  })
+  @IsString()
+  @IsNotEmpty()
+  @Matches(/(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/)
+  phone: string;
+
+  @ApiProperty({
+    default: '89pIS7TpRxOq8JOuzwbd6ZhkxVz1',
+    type: String,
+  })
+  @IsString()
+  @IsNotEmpty()
+  token: string;
+}
